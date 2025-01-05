@@ -1,10 +1,5 @@
-# Visual-Text Question Answering
+# Speech Event Extraction Challenge
 
-In this challenge, the model is expected to answer the question according to the given
-image-text pair. Information diversity, multimedia multi-step reasoning and open-ended
-answer make our task more challenging than the existing dataset. The aim of this challenge
-is to develop and benchmark models that are able to multimedia entity alignment, multi-step
-reasoning and open-ended answer generation.
+We propose the Speech Event Extraction (SpeechEE) challenge on the XLLM platform. Unlike traditional textual event extraction, SpeechEE aims to detect event triggers and arguments directly from audio speech, even when transcripts are unavailable. The SpeechEE is defined as: Given a speech audio input consisting of a sequence of acoustic frames, the goal is to extract structured event records comprising four elements: 1) the event type, 2) the event trigger, 3) event argument roles, and 4) the corresponding event arguments.
+                        
 
-# Data
-Coming soon.
