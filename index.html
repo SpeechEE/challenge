@@ -81,21 +81,28 @@
                                 <span class="link-block">
                                     <a href="#task"
                                         class="external-link button is-normal is-rounded is-dark">
-                                        <span>Task</span>
+                                        <span>Task & Evaluation</span>
                                     </a>
                                 </span>
                                 <!-- Code Link. -->
                                 <span class="link-block">
                                     <a href="#submission"
                                         class="external-link button is-normal is-rounded is-dark">
-                                        <span>Submission</span>
+                                        <span>Participate</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="#timeline"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span>Timeline</span>
                                     </a>
                                 </span>
 
                                 <span class="link-block">
                                     <a href="https://www.codabench.org/competitions/4897/"
                                         class="external-link button is-normal is-rounded is-dark">
-                                        <span>Participate</span>
+                                        <span>CodaBench</span>
                                     </a>
                                 </span>
                             </div>
@@ -163,9 +170,17 @@
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Introduction</h2>
                     <div class="content has-text-justified">
+
+                        <div style="text-align: center;">
+                            <img src="static/images/overview.png" width="90%" alt="">
+                            <p><b>Overview: SpeechEE Task.</b></p>
+                        </div>
+
                         <p>
                         We propose the Speech Event Extraction (SpeechEE) challenge on the XLLM platform. Unlike traditional textual event extraction, SpeechEE aims to detect event triggers and arguments directly from audio speech, even when transcripts are unavailable. The SpeechEE is defined as: Given a speech audio input consisting of a sequence of acoustic frames, the goal is to extract structured event records comprising four elements: 1) the event type, 2) the event trigger, 3) event argument roles, and 4) the corresponding event arguments.
                         </p>
+
+                        
                         <p>
                             The challenge contains three subtasks, from easy to hard.
                         </p>
@@ -204,14 +219,44 @@
                         <p>
                             <b>Task-3:</b> Event Quadruple Extraction aims to extract the complete event record quadruple including event trigger, event type, argument role and argument mention. The evaluation metric for this sub-task is the F1 score.
                         </p>
+                        
+                        <div class="columns is-centered has-text-centered">
+                            <div>
+                                <h2 class="title is-3">Evaluation</h2>
+                                <div class="content has-text-justified">
+                                    <p>
+                          
+                                        The F1 score is computed using precision (P) and recall (R), which are calculated as follows:
+                                         <p>
+                                          <b><em>P = TP / ( TP + FP )</em></b>
+                                         </p>
+                                         <p>
+                                          <b><em>R = TP / ( TP + FN ) </em></b>
+                                         </p>
+                                         <p>
+                                          <b><em>F1 = 2 * P * R / ( P + R ) </em></b>
+                                         </p>
+                                       
+                                         where TP, FP, and FN represent specific items that are used to calculate the F1 score in the context of a Confusion_matrix.
+                                         In particular, when computing the micro-F1 score, TP corresponds to the number of predicted tuple that match exactly with those in the gold set. 
+                                         
+              
+              
+                                         
+                                      </p>
+                                      <p>
+                                          Finally, we use the following score for ranking:
+                                      </p>
+                                      <p>
+                                               <b>overall score=<em>0.3*Task<sub>1</sub>+0.3*Task<sub>2</sub>+0.4*Task<sub>3</sub></em></b>
+                                      <p>
+                                          We provide python scripts for evaluation, please refer to the <a href="#baseline">baseline codes</a> "/challenge/scoring.py".
                        
-                        <p>
-                           Finally, we use the following score for ranking:
-                        </p>
-                        <p>
-                                 <b>overall score=<em>0.3s<sub>1</sub>+0.3s<sub>2</sub>+0.4s<sub>3</sub></em></b>
-                        <p>
-                            We provide python scripts for evaluation, please refer to the <a href="#baseline">baseline codes</a> "/challenge/scoring.py".
+                                </div>
+                            </div>
+                        </div>
+
+                        
                     </div>
                 </div>
             </div>
@@ -221,8 +266,13 @@
                     <h2 class="title is-3">Dataset</h2>
                     <div class="content has-text-justified">
                         <p>
-                             The dataset for this challenge is derived from ACE2005-EN+. It is a benchmark dataset for event extraction in the English language. It extended the original ACE05-EN data by considering multi-token event triggers and pronoun roles. 
-                             This dataset contains 33 event types and 22 argument roles. The detailed information is recorded in the <a href="#baseline">baseline codes</a> "/challenge/event-schema.json".
+                             The dataset for this challenge is derived from ACE2005-EN+. 
+                             It is a benchmark dataset for event extraction in the English language. 
+                             
+                             ACE2005-EN+ extended the original ACE05-EN data by considering multi-token event triggers and pronoun roles. 
+                        </p>
+                        <p>
+                             This dataset contains 33 event types and 22 argument roles, with 12,867 audios for training your model. The detailed information is recorded in the <a href="#baseline">baseline codes</a> "/challenge/event-schema.json".
                         </p>
                         <p>
                             Example of a sample:
@@ -235,6 +285,61 @@
                     </div>
                 </div>
             </div>
+
+
+
+            <div class="columns is-centered has-text-centered">
+                <div id="timeline" class="column is-four-fifths">
+                    <h2 class="title is-3">Timeline</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Please note: The submission deadline is at 11:59 p.m. (<a herf="https://www.timeanddate.com/time/zones/aoe" style="color:red">Anywhere on Earth</a>) of the stated deadline date.
+                        </p>
+                        <table class="._table table-bordered table-striped" align="center">
+                            <tbody align="center" valign="center">
+                            <tr>
+                              <td>Training data and participant instruction release for all shared tasks</td>
+                              <td>February 10, 2025</td>
+                            </tr>
+                            <tr>
+                              <td>Evaluation deadline for all shared tasks</td>
+                              <td>March 30, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Notification of all shared tasks</td>
+                                <td>April 5, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Shared-task paper submission deadline</td>
+                                <td>April 12, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Acceptance notification of shared-task papers</td>
+                                <td>April 30, 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Camera ready paper deadline</td>
+                                <td>May 16, 2025</td>
+                            </tr>
+                            
+
+
+                            <!-- <tr>
+                                <td><b style="color: red">Challenge Paper Submission Deadline</b>(follow <a href="https://2024.acmmm.org/important-dates">MM2024 Workshop Dates</a>)</td>
+                                <td><b style="color: red">August 19, 2024</b></td>
+                            </tr> -->
+
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
             
             <!-- / Paper video. -->
             <div class="columns is-centered has-text-centered">
@@ -280,7 +385,13 @@
                         <p>
                             
                             Participants can submit at <a href="https://www.codabench.org/competitions/4897/">Codabench</a>.
-                            We will review the submissions publish the ranking here. Feel free to contact with us if you have any questions ( fir430179@gmail.com )
+                        </p>
+                        <p>
+                            
+                            We will review the submissions publish the ranking here. 
+                            Feel free to contact us at <a href="mailto: fir430179@gmail.com">fir430179@gmail.com</a>.
+                            
+                        
                         </p>
                     </div>
                 </div>
@@ -293,14 +404,14 @@
                     <div class="content has-text-justified">
                       
                         <p>
-                            Link to the code <a href="https://github.com/SpeechEE/SpeechEE">https://github.com/SpeechEE/SpeechEE</a>
+                            Link to the code <a href="https://github.com/SpeechEE/SpeechEE">SpeechEE code</a>
                         </p>
                     </div>
                 </div>
             </div>
             
-            <!-- / Paper video. -->
-            <!-- <div class="columns is-centered has-text-centered">
+        
+             <!-- <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Registration</h2>
                     <div class="content has-text-justified">
@@ -312,50 +423,12 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            / Paper video.
-            <div class="columns is-centered has-text-centered">
-                <div class="column is-four-fifths">
-                    <h2 class="title is-3">Timeline</h2>
-                    <div class="content has-text-justified">
-                        <p>
-                            Please note: The submission deadline is at 11:59 p.m. (<a herf="https://www.timeanddate.com/time/zones/aoe" style="color:red">Anywhere on Earth</a>) of the stated deadline date.
-                        </p>
-                        <table class="._table table-bordered table-striped" align="center">
-                            <tbody align="center" valign="center">
-                            <tr>
-                              <td>Registration open</td>
-                              <td>May 24, 2024</td>
-                            </tr>
-                            <tr>
-                              <td>Release of all datasets</td>
-                              <td>MAy 28, 2024</td>
-                            </tr>
-                            <tr>
-                                <td>Evaluation results and ranking open</td>
-                                <td>June 10, 2024</td>
-                            </tr>
-                            <tr>
-                                <td><del>System reports and conference paper deadline</del></td>
-                                <td><del>July 12, 2024</del></td>
-                            </tr>
-                            <tr>
-                                <td><b style="color: red">Results Submission Deadline</b></td>
-                                <td><b style="color: red">August 1, 2024<b style="color: red"></td>
-                            </tr>
-                            <tr>
-                                <td><b style="color: red">Challenge Paper Submission Deadline</b>(follow <a href="https://2024.acmmm.org/important-dates">MM2024 Workshop Dates</a>)</td>
-                                <td><b style="color: red">August 19, 2024</b></td>
-                            </tr>
-
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
             
-            <div class="columns is-centered has-text-centered">
+            
+            
+             <!-- <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Rewards</h2>
                     <div class="content has-text-justified">
@@ -364,31 +437,22 @@
                         </p>
                     </div>
                 </div>
-            </div> -->
+            </div>   -->
 
             <!-- / Paper video. -->
-            <!-- <div class="columns is-centered has-text-centered">
+            <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Organizers</h2>
                     <div class="content has-text-justified">
-                        <p>
-                            <a href="https://scholar.google.com/citations?user=jeW8EcYAAAAJ&hl=en">Yu Zhao</a>. College of Intelligence and Computin, Tianjin University, China.
-                        </p>
-                        <p>
-                             <a href="https://scholar.google.com/citations?user=YGDX46AAAAAJ&hl=en">Hao Fei</a>. Skywork AI, National University of Songalpore, Singapore.
-                        </p>
-                        <p>
-                            <a href="https://scholar.google.com/citations?user=90mnP8MAAAAJ&hl=en&oi=ao">Bobo Li</a>. School of Cyber Science and Engineering, Wuhan University, China.
-                        </p>
-                        <p>
-                            <a href="https://scholar.google.com/citations?user=k-chMpIAAAAJ&hl=en&oi=ao">Meishan Zhang</a>. Harbin Institute of Technology (Shenzhen), Shenzhen, China.
-                        </p>
-                        <p>
-                            <a href="https://scholar.google.com/citations?user=CncXH-YAAAAJ&hl=en">Min Zhang</a>. Harbin Institute of Technology (Shenzhen), Shenzhen, China.
-                        </p>
+                        
+            <p>Bin Wang (Harbin Institute of Technology, Shenzhen, China)</p>
+            <p>Hao Fei (National University of Singapore, Singapore)</p>
+            <p>Meishan Zhang (Harbin Institute of Technology, Shenzhen, China)</p>
+            <p>Min Zhang (Harbin Institute of Technology, Shenzhen, China)</p>
+            <p>Yu Zhao (Tianjin University, China)</p>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
 
             <div class="columns is-centered has-text-centered">
@@ -411,19 +475,7 @@
         </div>
     </section>
 
-<!--     <footer class="footer">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-8">
-                    <div class="content">
-                        <p>
-                            Borrowed from <a href="https://github.com/nerfies/nerfies.github.io">source code</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> -->
+
 
 </body>
 <script>
